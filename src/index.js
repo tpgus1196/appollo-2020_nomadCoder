@@ -2,9 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
+// import {ApolloProvider} from "@apollo-react-hooks" > @apollo/client로 병합됨;
+import { 
+  ApolloProvider, 
+  InMemoryCache,
+  ApolloClient,
+  useQuery,
+  gql
+} from '@apollo/client';
+import client from "./routes/apollo"; //client는 apollo.js에서 만들어 둔 것
 
-ReactDOM.render(
-    <App />,
+
+ReactDOM.render( 
+  
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+
   document.getElementById('root')
 );
 
